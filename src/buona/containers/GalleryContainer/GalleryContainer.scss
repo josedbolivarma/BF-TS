@@ -1,0 +1,29 @@
+.root_galleryContainer {
+    width: 94%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .galleryContainer__title {
+    text-align: center;
+  }
+
+  .galleryContainer__gallery {
+    margin-top: 4rem;
+  }
+
+  .galleryContainer__titlePrincipal {
+    color: #5C5C5C;
+    font-size: 2.8rem;
+    font-weight: 750;
+    font-style: italic;
+    margin-bottom: .6rem;
+    margin-top: 2rem;
+  }
+
+  .galleryContainer__titleSecondary {
+    color: #B9B9B9;
+    font-size: 1.3rem;
+  }

@@ -1,0 +1,124 @@
+// --------------- TODO MEDIA QUERIES --------------- //
+@import '../../scss/lib/mediaqueries';
+
+.header__root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: sticky;
+    z-index: 1000000000000;
+  }
+
+  .header__title {
+    font-size: 1.4rem;
+    letter-spacing: 1.6px;
+    font-weight: 400;
+    @include respond-to( 700px ) {
+      font-size: 1.6rem;
+    }
+   
+    @include respond-to( 840px ) {
+      font-size: 2.4rem;
+    }
+
+    @include desktop {
+      font-size: 3.3rem;
+    }
+  }
+
+.header {
+    width: 100%;
+    z-index: 1000000000000;
+    padding: 1rem 0;
+    background-color: #FFF;
+    position: fixed;
+    bottom: 0;
+    @include tablet {
+    position: relative;
+    }
+  }
+.header__container {
+    width: 94%;
+    margin: 0 auto;
+    display: flex;
+    justify-Content: space-between;
+    align-items: center;
+}
+
+.header__menu {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+      position: absolute;
+      top: -220%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      transition: all .3s ease-in-out;
+}
+
+.header__menuFalse {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      transition: all .3s ease-in-out;
+      @include tablet {
+        position: relative;
+      }
+}
+
+.header__links {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  text-align: center;
+    @include tablet {
+      flex-direction: row;
+    }
+   
+  }
+  
+  .header__socialIcons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .header__link {
+    color: #000;
+    text-decoration: none;
+    z-index: 100000;
+    &:hover {
+      color: #5C5C5C;
+    }
+  }
+  
+  .header__option {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .header__optionLineOne {
+    display: none;
+    margin-right: 1rem;
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .menuIcon {
+    display: block;
+    cursor: pointer;
+    margin-left: .5rem;
+    @include tablet {
+      display: none;
+    }
+}
