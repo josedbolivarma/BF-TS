@@ -18,3 +18,23 @@
     margin: .6rem 0;
     text-align: center;
 }
+
+.btn-pay-yellow {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    gap: 10px;
+    color: black;
+    background-color: #FFCE00;
+    padding: .6rem 1.2rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.title-gray {
+    font-size: 2.4rem;
+    color: #5C5C5C;
+    font-weight: bold;
+  }

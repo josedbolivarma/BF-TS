@@ -21,9 +21,9 @@ export const routes: Route[] = [
         name: 'Home'
     },
     {
-        to: 'hero/:id',
-        path: 'hero/:id',
+        to: '/detalle',
+        path: '/detalle',
         Component: lazy2,
-        name: 'Hero Page'
+        name: 'Detail Page'
     }
 ];

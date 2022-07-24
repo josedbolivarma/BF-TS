@@ -1,25 +1,27 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectedModal } from '../../../redux/action/actionModal';
 import { listAsync } from '../../../redux/action/actionProducts';
+import { formatoCOP } from '../../../utils';
 import './Gallery.scss';
 
 export const Gallery = ({ categoria = "Elite" }: any ) => {
 
     const dispatch = useDispatch();
 
-    // const { modal } = useSelector((store: any ) => store.modal);
+    const { modal } = useSelector((store: any ) => store.modal);
     const { products } = useSelector((store: any ) => store.products);
   
     const filtrado = products.filter(( item: any ) => item.categoria === categoria );
   
     const enviarDatosModal = ( codigo: string ) => {
-    //   dispatch(selectedModal(codigo));
+      dispatch(selectedModal(codigo));
     };
   
     useEffect(() => {
       dispatch<any>( listAsync() );
-    }, []);
+    }, [ modal ]);
 
     
   return (
@@ -35,11 +37,10 @@ export const Gallery = ({ categoria = "Elite" }: any ) => {
             />
           </Link>
           <span className='gallery__markPrice'>
-            {/* { formatoCOP.format(card.precio) } */}
-            $80.000
+            { formatoCOP.format( card.precio ) }
           </span>
           <div className='gallery__content'>
-            <Link className='link-green' to="/detalle">{card.nombre}</Link>
+            <p className='link-green'>{card.nombre}</p>
 
             <button className='btn-gallery' type="button">
               Agregar al Carrito

@@ -7,3 +7,7 @@ export const typesProductos ={
     search : 'search',
     addFormik: 'addFormik'
 }
+
+export const typesModal = {
+    selected: 'selected [MODAL]'
+}
