@@ -11,3 +11,14 @@ export const typesProductos ={
 export const typesModal = {
     selected: 'selected [MODAL]'
 }
+
+export const typesShoppingCart = {
+    add: 'add [SHOPPING CART]',
+    remove: 'remove [SHOPPING CART]',
+    list: 'get [SHOPPING CART]'
+}
+
+export const typesComments = {
+    add: 'add [COMMENTS]',
+    list: 'list [COMMENTS]'
+}
