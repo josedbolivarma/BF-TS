@@ -12,6 +12,7 @@ interface Route {
 
 const lazy1 = lazy(() => import(/* webpackChunkName: "LazyHomePage" */'../buona/pages/HomePage/HomePage'));
 const lazy2 = lazy(() => import(/* webpackChunkName: "LazyDetailPage" */'../buona/pages/DetailPage/DetailPage'));
+const lazy3 = lazy(() => import(/* webpackChunkName: "LazyProductsPage" */'../buona/pages/ProductsPage/ProductsPage'));
 
 export const routes: Route[] = [
     {
@@ -25,5 +26,11 @@ export const routes: Route[] = [
         path: '/detalle',
         Component: lazy2,
         name: 'Detail Page'
+    },
+    {
+        to: '/products',
+        path: '/products',
+        Component: lazy3,
+        name: 'Products Page'
     }
 ];

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import './DetailPage.scss';
-import { DetailsContainer } from "../../containers";
+import { DetailsContainer, CommentsContainer } from "../../containers";
 
 export const DetailPage = () => {
 
@@ -59,7 +59,7 @@ export const DetailPage = () => {
       </div>
 
       {/* Comments */}
-      {/* <CommentsContainer product={product} /> */}
+      <CommentsContainer product={product} />
       {/* Comments */}
     </div>
   </div>
