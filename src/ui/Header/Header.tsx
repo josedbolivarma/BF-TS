@@ -60,7 +60,7 @@ export const Header = () => {
                 </span>
 
                 {/* { user ? "Cerrar Sesión" : "Inicio de Sesión"} */}
-                Inicio de Sesion
+                Ingresar
                 <BsFillPersonFill style={ iconStyles }/>
                 {/* <PersonIcon /> */}
               </div>

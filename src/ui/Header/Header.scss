@@ -12,7 +12,7 @@
   }
 
   .header__title {
-    font-size: 1.4rem;
+    font-size: .8rem;
     letter-spacing: 1.6px;
     font-weight: 400;
     @include respond-to( 700px ) {
@@ -92,11 +92,15 @@
   }
   
   .header__link {
+    font-size: .9rem;
     color: #000;
     text-decoration: none;
     z-index: 100000;
     &:hover {
       color: #5C5C5C;
+    }
+    @include respond-to( 580px ) {
+      font-size: 1rem;
     }
   }
   

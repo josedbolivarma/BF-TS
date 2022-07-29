@@ -7,7 +7,7 @@ export const Nav = () => {
     <div className='nav'>
     <div className='nav__container'>
       <div className='nav__links'>
-        <div className='nav__frase'>Tu mejor versión</div>
+        <div className='nav__link'>Tu Mejor Versión</div>
         <Link className='nav__link' to="/buonaTest">
           BUONA TEST
         </Link>
