@@ -38,7 +38,7 @@ export const Product = ({ product }: any ) => {
           {/* <GrayLightTypographyStyled2>
             {product.nombre}
           </GrayLightTypographyStyled2> */}
-          <p>
+          <p className='product__text'>
             { product.nombre }
           </p>
         </div>
