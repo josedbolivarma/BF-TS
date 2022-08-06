@@ -76,12 +76,14 @@ img {
     border-radius: 50px;
     border: none;
     outline: none;
+    justify-content: center;
     cursor: pointer;
     transition: all .3s ease;
   }
 
   .btn-cart:hover {
     background-color: #ffe479;
+    letter-spacing: .8px;
   }
 
   .btn-cart-add {

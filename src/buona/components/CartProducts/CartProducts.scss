@@ -1,3 +1,5 @@
+@import '../../../scss/lib/mediaqueries';
+
 .cartProducts {
     width: 100%;
     display: flex;
@@ -7,6 +9,10 @@
     margin-top: .5rem;
     margin-bottom: 1rem;
     padding-bottom: 20px;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
   }
 
   .cartProducts__info {
@@ -14,9 +20,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: .8rem;
     padding-right: 1.5rem;
     width: 50%;
     color: white;
+    flex-direction: column;
+    @include desktop {
+      flex-direction: row;
+    }
   }
 
   .cartProducts__image {
@@ -32,6 +43,8 @@
     letter-spacing: .3px;
     font-size: 1.2rem;
     font-weight: 700;
+    margin-bottom: 1.4rem;
+
   }
   
   .cartProducts__price {
@@ -40,7 +53,13 @@
     font-size: 1.5rem;
     margin-top: .5rem;
     margin-bottom: 1rem;
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 
+  .cartProducts__flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
   

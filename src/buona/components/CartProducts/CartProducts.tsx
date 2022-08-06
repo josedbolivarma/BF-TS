@@ -22,16 +22,25 @@ export const CartProducts = ({ id, image, nombre, precio }: any ) => {
       />
 
       <div className='cartProducts__info'>
+
         <p className='cartProducts__title'>{ nombre }</p>
+        <div className="cartProducts__flex">
         <p className='cartProducts__price'>
           { formatoCOP.format( precio )}
-          ss
         </p>
-        <div>
-        <button className="btn-cart" onClick={ removeFromCart }>REMOVE</button>
-
+        <button 
+        className="btn-cart" 
+        onClick={ removeFromCart }>
+          <span style={{
+            fontSize: '.8rem'
+          }}>
+            ELIMINAR
+          </span>
+        </button>
         </div>
+
       </div>
+
     </div>
   )
 }
