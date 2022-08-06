@@ -19,6 +19,11 @@ export const Subtotal = () => {
             <p>
               ({cart.length} elementos): <strong>{ value }</strong>
             </p>
+            <img 
+            className="subtotal-banner"
+            src="https://www.easypromosapp.com/blog/wp-content/uploads/xxss_ideas_trendy_promociones_navidenas.jpg" 
+            alt="Promocion" 
+            />
             <small className='subtotal__gift'>
               <input type="checkbox" />
               Buona Fit Regalo 🧡
@@ -32,12 +37,7 @@ export const Subtotal = () => {
         prefix={"$"}
       />
 
-      {/* <ButtonPrincipal onClick={(e) => navigate("/payment")}>
-        Vamos a pagar
-      </ButtonPrincipal> */}
-       <button onClick={(e) => navigate("/payment")}>
-        Vamos a pagar
-      </button>
+      
     </div>
   )
 }

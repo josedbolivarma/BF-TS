@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import { selectedModal } from '../../../redux/action/actionModal';
 import { listAsync } from '../../../redux/action/actionProducts';
 import { formatoCOP } from '../../../utils';
+import { FaShoppingCart } from 'react-icons/fa';
+
+// Styles
 import './Gallery.scss';
+import { addSyncToCart } from '../../../redux/action/actionShoppingCart';
 
 export const Gallery = ({ categoria = "Elite" }: any ) => {
 
@@ -19,6 +23,10 @@ export const Gallery = ({ categoria = "Elite" }: any ) => {
       dispatch(selectedModal(codigo));
     };
   
+    const addToCart = ( productCart: any ) => {
+      dispatch( addSyncToCart( productCart ) );
+    }
+
     useEffect(() => {
       dispatch<any>( listAsync() );
     }, [ modal ]);
@@ -42,8 +50,12 @@ export const Gallery = ({ categoria = "Elite" }: any ) => {
           <div className='gallery__content'>
             <p className='link-green'>{card.nombre}</p>
 
-            <button className='btn-gallery' type="button">
-              Agregar al Carrito
+            <button 
+            type="button"
+            className='btn-cart-add' 
+            onClick={ () => addToCart( card ) }
+            >
+              Agregar <FaShoppingCart />
             </button>
           </div>
         </div>

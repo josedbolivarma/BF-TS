@@ -5,6 +5,7 @@ import { selectedModal } from '../../../redux/action/actionModal';
 import { addSyncToCart } from '../../../redux/action/actionShoppingCart';
 import { FaShoppingCart } from 'react-icons/fa';
 
+// Styles 
 import './Product.scss';
 
 export const Product = ({ product }: any ) => {
@@ -19,7 +20,7 @@ export const Product = ({ product }: any ) => {
     };
   
     const addToCart = ( productCart: any ) => {
-      dispatch( addSyncToCart(productCart) );
+      dispatch( addSyncToCart( productCart ) );
     };
 
   return (
@@ -35,17 +36,14 @@ export const Product = ({ product }: any ) => {
           <p className='product__categoria'>
             { product.categoria }
           </p>
-          {/* <GrayLightTypographyStyled2>
-            {product.nombre}
-          </GrayLightTypographyStyled2> */}
+         
           <p className='product__text'>
             { product.nombre }
           </p>
         </div>
-        {/* <ButtonSecondary onClick={() => addToCart(product)}>
-          Agregar <ShoppingCart />
-        </ButtonSecondary> */}
-        <button onClick={() => addToCart(product)}>
+        <button 
+        className='btn-cart-add' 
+        onClick={() => addToCart( product )}>
           Agregar <FaShoppingCart />
         </button>
         <p className='product__markPrice'>

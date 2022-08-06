@@ -1,0 +1,107 @@
+  @import '../../../scss/lib/mediaqueries';
+  
+  .cart {
+    width: 100%;
+    min-height: 60vh;
+    margin: 4rem 0;
+  }
+
+  .cart__container {
+    width: 94%;
+    margin: 0 auto;
+  }
+
+  .cart__containerTitle {
+    padding-bottom: 4rem;
+    text-align: center;
+    color: #FFF;
+  }
+
+  .cart__containerLabels {
+    width: 100%;
+    border-bottom: 2px solid #5C5C5C;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form__orderFlex {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    gap: 4rem;
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  .cart__containerForm {
+    width: 100%;
+  }
+
+  .cart__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cart__formTextarea {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 2px solid #333;
+    resize: vertical;
+    min-height: 60px;
+    max-height: 200px;
+  }
+
+  .cart__formContainerCheckbox {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: #333;
+  }
+
+  .cart__order {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 2px solid #EFEFEF;
+    gap: 1rem;
+  }
+
+  .cart__orderBox {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart__title {
+    font-size: 2.4rem;
+    color: #5C5C5C;
+    font-weight: bold;
+    text-align: center;
+    margin: 2rem 0;
+    text-transform: uppercase;
+  }
+
+  // Fonts Styles
+
+.cart__titleGray {
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 750;
+  font-style: italic;
+}
+
+.cart__subtitleGray {
+  padding-top: 15px;
+  color: #5C5C5C;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.cart__titleDarkGray {
+  color: #5C5C5C;
+  font-size: 1.1rem;
+}

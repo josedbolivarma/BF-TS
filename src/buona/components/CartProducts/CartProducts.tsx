@@ -1,8 +1,9 @@
 import { formatoCOP } from "../../../utils"
-
-import './CartProducts.scss';
 import { useDispatch } from 'react-redux';
 import { deleteSyncFromCart } from "../../../redux/action/actionShoppingCart";
+
+// Styles
+import './CartProducts.scss';
 
 export const CartProducts = ({ id, image, nombre, precio }: any ) => {
 
@@ -11,7 +12,6 @@ export const CartProducts = ({ id, image, nombre, precio }: any ) => {
     const removeFromCart = () => {
       dispatch( deleteSyncFromCart( id ) );
     };
-
     
   return (
     <div className='cartProducts'>
@@ -24,10 +24,11 @@ export const CartProducts = ({ id, image, nombre, precio }: any ) => {
       <div className='cartProducts__info'>
         <p className='cartProducts__title'>{ nombre }</p>
         <p className='cartProducts__price'>
-          <p>{ formatoCOP.format( precio )}</p>
+          { formatoCOP.format( precio )}
+          ss
         </p>
         <div>
-        <button onClick={ removeFromCart }>Remove</button>
+        <button className="btn-cart" onClick={ removeFromCart }>REMOVE</button>
 
         </div>
       </div>

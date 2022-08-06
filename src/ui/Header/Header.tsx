@@ -8,6 +8,8 @@ import { useState } from "react";
 
 // Icons
 import { BsFillPersonFill } from 'react-icons/bs';
+import { FaShoppingCart } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const iconStyles = { fontSize: '30px' };
 
@@ -15,6 +17,8 @@ export const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
   const [isOpen, setOpen] = useState<boolean>(false)
   
+  const { cart } = useSelector(( store: any ) => store.cart);
+
   const handleMenu = () => {
     setShowMenu(!showMenu);
     setOpen( !isOpen );
@@ -58,18 +62,15 @@ export const Header = () => {
                     ? user.email
                     : user.displayName} */}
                 </span>
-
                 {/* { user ? "Cerrar Sesión" : "Inicio de Sesión"} */}
                 Ingresar
                 <BsFillPersonFill style={ iconStyles }/>
-                {/* <PersonIcon /> */}
               </div>
             </Link>
             <Link className="header__link" to="/cart">
-              {/* <ShoppingCartIcon /> */}
-              {/* <span>{ cart.length }</span> */}
+              <FaShoppingCart style={ iconStyles }/>
+              <span>{ cart.length }</span>
             </Link>
-            {/* <MenuIcon */}
 
 
             <div className="menuIcon">

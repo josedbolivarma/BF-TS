@@ -45,15 +45,7 @@ export const HomePage = () => {
           </p>
           <div className='text__container'>
             <p className='home__text'>
-              Por muchos años el mundo saludable ha estado ligado al mismo
-              enfoque de desarrollo fisico, ignorando por completo los conceptos
-              cientificos, además de prometer resultados milagrosos a base de
-              suplementos que en la mayoría de los casos no tienen garantía de
-              resultados, sumados a usos en momentos inprecisos. Buona Fit no es
-              un proveedor, es un amigo para todos aquellos deportistas,
-              sedentarios dando el primer paso, madres en su recuperación
-              postparto, estudiantes Universitarios, y en general para
-              cualquiera.
+            Buona Fit no es un proveedor, es un amigo para deportistas en busca de la excelencia.
             </p>
           </div>
         </div>

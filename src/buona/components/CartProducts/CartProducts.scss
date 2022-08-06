@@ -6,13 +6,14 @@
     border-bottom: 2px solid #5C5C5C;
     margin-top: .5rem;
     margin-bottom: 1rem;
-    padding-bottom: 500px;
+    padding-bottom: 20px;
   }
 
   .cartProducts__info {
     height: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right: 1.5rem;
     width: 50%;
     color: white;
@@ -27,16 +28,19 @@
   }
   
   .cartProducts__title {
-    display: flex;
-    align-items: center;
-    font-size: 17px;
+    color: #333;
+    letter-spacing: .3px;
+    font-size: 1.2rem;
     font-weight: 700;
-    height: 100%;
-    gap: 1rem;
   }
   
   .cartProducts__price {
+    color: #004e13;
+    font-weight: 500;
+    font-size: 1.5rem;
     margin-top: .5rem;
     margin-bottom: 1rem;
     margin-right: 2rem;
   }
+
+  
