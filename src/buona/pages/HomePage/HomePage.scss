@@ -16,17 +16,6 @@
     object-fit: cover;
   }
 
-  // .banner__fadeBottom {
-  //   width: 100%;
-  //   position: absolute;
-  //   top: 45vh;
-  //   bottom: 0;
-  //   left: 0;
-  //   right: 0;
-  //   z-index: 99;
-  //   background-image: linear-gradient(180deg, transparent, rgba(37,37,37, 0.61), #000);
-  // }
-
   .home__container {
     width: 94%;
     margin: 6rem auto;
@@ -37,16 +26,11 @@
     @include respond-to( 640px ) {
       grid-template-columns: 2fr 2fr;
     }
-    // [theme.breakpoints.down("sm")]: {
-    //   gridTemplateColumns: "1fr",
-    // },
+    
   }
 
   .home__content {
     width: 100%;
-    // [theme.breakpoints.down("sm")]: {
-    //   marginBottom: "3.2rem",
-    // },
   }
   
   .home__images {
@@ -88,9 +72,7 @@
       display: block;
       border-radius: 10px 10px 10px 0;
     }
-    // [theme.breakpoints.down("sm")]: {
-    //   width: "100%",
-    // }
+   
   }
   
   .home__titlePrincipal {
@@ -117,46 +99,71 @@
   .category__workout {
     display: flex;
     flex-direction: column;
+    background-color: #000;
+    padding-bottom: 2rem;
   }
-  
-  // .category__workoutFlex {
-  //   display: grid;
-  //   // gridTemplateColumns: '1fr 1fr',
-  //   grid-template-columns: 1fr;
 
-  //   // height: '340px',
-  //   height: 100vh;
-  //   overflow: hidden;
-  //   background-color: #000;
-  // }
+  .category__workoutFilter {
+    display: grid;
+    margin-top: 2rem;
+    justify-content: center;
+    grid-template-columns: repeat( 2, 1fr );
+    
+  }
 
-  .category__workoutImage {
-    // position: absolute;
+  .category__workoutBox {
     position: relative;
     width: 100%;
-    top: 0;
-    // bottom: 0,
-    // height: 100%;
+    height: 100px;
+    @include respond-to( 640px ) {
+      height: 200px;
+    }
+  }
+  
+  .category__workoutImage {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     cursor: pointer;
     transition: all .3s ease-in;
-    // "&:hover": {
-    //   transform: scale(1.1);
-    //   // opacity: '.6'
-    // }
+    &:hover {
+      opacity: .6;
+    } 
   }
   
   .category__workoutContentImage {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 50vh;
+    @include desktop {
+      height: 70vh;
+    }
   }
 
   .category__workoutSpan {
     position: absolute;
     font-size: 2.4rem;
+    font-weight: 700;
     color: #FFF;
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
     text-transform: uppercase;
+    text-align: center;
+  }
+
+  .category__workoutSpanTwo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY( -50% );
+    transform: translateX( -50% );
+    color: #FFF;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    @include desktop {
+      font-size: 1.8rem;
+    }
   }

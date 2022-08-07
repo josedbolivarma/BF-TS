@@ -1,10 +1,40 @@
 import { Link } from "react-router-dom";
 
 import './HomePage.scss';
-import { HomeFilters } from '../../components';
 import { GalleryContainer } from "../../containers";
+import { useState } from 'react';
+
+const bannerLinks = [
+  {
+    categoria: 'Aumento',
+    image: 'https://cdn.pixabay.com/photo/2021/01/03/03/43/man-5883500_960_720.jpg',
+    url: 'gain'
+  },
+  {
+    categoria: 'Definición',
+    image: 'https://cdn.pixabay.com/photo/2020/05/12/16/45/man-5163889_960_720.jpg',
+    url: 'burn'
+  },
+  {
+    categoria: 'Funcional',
+    image: 'https://cdn.pixabay.com/photo/2017/04/27/08/28/sport-2264824_960_720.jpg',
+    url: '/functional'
+  },
+  {
+    categoria: 'Competición',
+    image: 'https://cdn.pixabay.com/photo/2019/12/06/15/12/boxing-4677527_960_720.jpg',
+    url: '/competition'
+  },
+]
 
 export const HomePage = () => {
+
+  const [ image, setImage ] = useState({
+    categoria: "TU DEFINES EL OBJETIVO",
+    image:
+      "https://www.cope.es/blogs/t-cuidamos/wp-content/uploads/sites/12/2018/12/gimnasio.jpg",
+  });
+
   return (
     <div className='home'>
       <div className='home__opacity'>
@@ -20,17 +50,41 @@ export const HomePage = () => {
           <div className='category__workoutContentImage'>
             <img
               className='category__workoutImage'
-              // src={image.image}
-              src='https://www.cope.es/blogs/t-cuidamos/wp-content/uploads/sites/12/2018/12/gimnasio.jpg'
+              src={ image.image }
               alt="Workout 1"
             />
             <span className='category__workoutSpan'>
-              {/* {image.categoria} */}
+              { image.categoria }
             </span>
           </div>
         </div>
 
-      {/* FILTER */}
+    {/* FILTER */}
+      <div className="category__workoutFilter">
+        {
+          bannerLinks.map(({ categoria, image, url }) => (
+            <div 
+            key={ url }
+            onMouseEnter={ () => setImage({
+              image,
+              categoria
+            }) }
+            className="category__workoutBox">
+              <Link to={ url }>
+              <img 
+                className="category__workoutImage"
+                src={ image }
+                alt={ categoria }
+            />
+            <span className="category__workoutSpanTwo">
+              { categoria }
+            </span>
+              </Link>
+
+            </div>
+          ))
+        }
+      </div>
         {/* <HomeFilters /> */}
     {/* Filter */}
 

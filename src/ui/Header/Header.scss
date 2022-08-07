@@ -15,6 +15,7 @@
     font-size: .8rem;
     letter-spacing: 1.6px;
     font-weight: 400;
+    color: #000;
     @include respond-to( 700px ) {
       font-size: 1.6rem;
     }

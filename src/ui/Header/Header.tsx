@@ -28,9 +28,9 @@ export const Header = () => {
     <div className="header__root">
       <div className="header">
         <div className="header__container">
-          <h3 className="header__title">
-            BUONA FIT
-          </h3>
+          <Link className="header__title" to='/'>
+              BUONA FIT
+          </Link>
           <div
             className={
               showMenu ? 'header__menuFalse' : 'header__menu'
