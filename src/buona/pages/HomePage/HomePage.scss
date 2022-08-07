@@ -142,7 +142,7 @@
 
   .category__workoutSpan {
     position: absolute;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: #FFF;
     top: 50%;
@@ -150,6 +150,9 @@
     transform: translateX(-50%);
     text-transform: uppercase;
     text-align: center;
+    @include tablet {
+      font-size: 2.4rem;
+    }
   }
 
   .category__workoutSpanTwo {
