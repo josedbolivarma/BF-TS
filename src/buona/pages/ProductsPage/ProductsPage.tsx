@@ -5,6 +5,7 @@ import { listAsync } from '../../../redux/action/actionProducts';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './ProductsPage.scss';
+import { Loader } from '../../../ui';
 
 export const ProductsPage = () => {
     
@@ -75,12 +76,16 @@ export const ProductsPage = () => {
             </div>
           </div>
           <div className='category__containerFlexLineTwo'>
-            { products
+            {
+              (!products)
+              ? <Loader />
+              : products
               .filter(( item: any ) => item.categoria === filter)
               .filter((item: any ) => item.precio < ammount)
               .map(( item: any , index: number ) => (
                 <Product key={ index } product={ item } />
-              ))}
+              ))
+            }
           </div>
         </div>
       </div>

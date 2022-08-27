@@ -1,4 +1,3 @@
-
 import { lazy, LazyExoticComponent } from "react";
 
 type JSXComponent = () => JSX.Element;
@@ -18,6 +17,9 @@ const lazy5 = lazy(() => import(/* webpackChunkName: "LazyProductsPage" */'../bu
 const lazy6 = lazy(() => import(/* webpackChunkName: "LazyProductsPage" */'../buona/pages/Gain/Gain'));
 const lazy7 = lazy(() => import(/* webpackChunkName: "LazyProductsPage" */'../buona/pages/Burn/Burn'));
 const lazy8 = lazy(() => import(/* webpackChunkName: "LazyProductsPage" */'../buona/pages/Cart/Cart'));
+const lazy9 = lazy(() => import(/* webpackChunkName: "LazyProductsPage" */'../buona/pages/BuonaTest/BuonaTest'));
+const lazy10 = lazy(() => import(/* webpackChunkName: "LazyTrainingsPage" */'../buona/pages/Trainings/Trainings'));
+const lazy11 = lazy(() => import(/* webpackChunkName: "LazyExercisePage" */'../buona/pages/Exercise/Exercise'));
 
 export const routes: Route[] = [
     {
@@ -67,5 +69,23 @@ export const routes: Route[] = [
         path: '/cart',
         Component: lazy8,
         name: 'Cart Page'
+    },
+    {
+        to: '/test',
+        path: '/test',
+        Component: lazy9,
+        name: 'BuonaTest Page'
+    },
+    {
+        to: '/trainning',
+        path: '/trainning',
+        Component: lazy10,
+        name: 'Trainning Page'
+    },
+    {
+        to: '/exercise/:id',
+        path: '/exercise/:id',
+        Component: lazy11,
+        name: 'Exercise Page'
     }
 ];
