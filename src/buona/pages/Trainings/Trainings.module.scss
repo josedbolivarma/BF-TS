@@ -1,3 +1,5 @@
+@import '../../../scss/lib/mediaqueries';
+
 .training {
   width: 100%;
   height: 100%;
@@ -10,13 +12,17 @@
 }
 
 .grid {
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   min-height: 40vh;
-  // [theme.breakpoints.down('sm')]: {
-  //   gridTemplateColumns: 'repeat(2, 1fr)',
-  // }
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .gridItem {
@@ -63,7 +69,8 @@
 }
 
 .content {
-  width: 75%;
+  width: 90%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -82,42 +89,58 @@
 }
 
 .content__title {
-  font-size: 4vw;
+  font-size: 1.2rem;
   letter-spacing: 1px;
   color: #000;
   text-align: center;
+  @include tablet {
+    font-size: 2rem;
+  }
 }
 
 .content__text {
-  font-size: 2vw;
+  font-size: 1.2rem;
   color: #111;
   text-align: center;
+  @include tablet {
+    font-size: 1.4rem;
+  }
 }
 
 //FILTER CONTENT
 .content__filter {
   width: 100%;
-  margin: 2rem 0;
   padding: 1rem 0;
-  background-color: #111;
+  margin-bottom: 2rem;
+  background-color: #FFF;
 }
 
 .content__filterContent {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+
+    @include desktop {
+      flex-direction: row;
+    }
 }
 
 .content__search {
   display: flex;
+  width: 100%;
   align-items: center;
   background-color: #25282a;
   padding: 0.5rem;
-  flex: 0.6;
+  flex: 0.1;
 }
 
 .content__searchInput {
+  width: 100%;
   background: transparent;
   padding: 0.8rem 0.4rem;
   outline: none;
@@ -132,7 +155,7 @@
 }
 
 .content__filterTitle {
-  color: #7e8da4;
+  color: #7E8DA4;
   font-size: 1.3rem;
   font-weight: 400;
   letter-spacing: 2px;
@@ -154,9 +177,20 @@
 
 .content__filterDetails {
   width: 100%;
-  display: grid;
+  color: rgb(2, 0, 35);
   grid-template-columns: repeat(3, 3fr);
+  font-size: .6rem;
+  display: grid;
+  gap: .4rem;
   padding: 0 1rem;
   text-align: center;
   text-transform: uppercase;
+  overflow: hidden;
+  @include tablet {
+    font-size: 1.2rem;
+  }
+
+  & h2 {
+    width: 80px;
+  }
 }

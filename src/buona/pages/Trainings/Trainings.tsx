@@ -55,13 +55,13 @@ export const Training = () => {
           </div>
           <div className={styles.content__search}>
           <img className={styles.content__searchIcon} src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/1200px-Vector_search_icon.svg.png' alt='Search Icon'/>
-          <input placeholder="Elíge que quieres trabajar ..." onChange={(e) => setValue(e.target.value)} type='text' className={styles.content__searchInput}/>
+          <input placeholder="Elíge que quieres trabajar..." onChange={(e) => setValue(e.target.value)} type='text' className={styles.content__searchInput}/>
           </div>
           </div>
           <div className={styles.content__filterDetails}>
             <h2>{ categoria }</h2>
             <h2>{ (complejidad == 1)? 'FÁCIL': (complejidad == 2)? "NORMAL" : "DÍFICIL" }</h2>
-            <h2>{ value }</h2>
+            <h2>{ value || 'Busqueda...' }</h2>
           </div>
         </div>
         <div className={styles.grid}>
