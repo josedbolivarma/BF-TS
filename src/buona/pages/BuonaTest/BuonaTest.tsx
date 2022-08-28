@@ -10,12 +10,14 @@ export const BuonaTest = () => {
   const [altura, setAltura] = useState(0);
   const [peso, setPeso] = useState(0);
   const [tmb, setTmb] = useState(0);
-  const [edad, setEdad] = useState(19);
+  const [edad, setEdad] = useState(0);
   const [objetivo, setObjetivo] = useState<any>(0);
   const [sexo, setSexo] = useState<any>(0);
   const [actividad, setActividad] = useState<any>(0);
   const [logro, setLogro] = useState(0);
   const [imc, setImc] = useState<any>(0);
+
+  const [ recommend, setRecommend ] = useState<string>('RECOMNDSA');
 
   /******Eventos para Modal de simulación de Compra*/
   const [open, setOpen] =  useState(false);
@@ -43,20 +45,30 @@ export const BuonaTest = () => {
 
   const calculateTmb = () => {
     const alturaM = altura / 100;
+    let TMB: number = 0;
+    if ( sexo === 161 ) {
+      TMB = Math.round( (10 * peso + 6.25 * altura - 5 * edad - sexo ) * actividad );
+    } else {
+      TMB = Math.round( (10 * peso + 6.25 * altura - 5 * edad + ( sexo )) * actividad );
+    }
 
-    const TMB = Math.round( (10 * peso + 6.25 * altura - 5 * edad + sexo) * actividad );
     const L = Math.round(TMB * objetivo );
 
+    console.log( L, TMB );
     if (isNaN(TMB) || isNaN(L)) {
       setOpen(true);
+      return;
     } else if (TMB < 600) {
+      verifyObj();
       setOpen(true);
     } else {
       setTmb(TMB);
       setLogro(L);
       setImc((peso / (alturaM * alturaM)).toFixed(2));
+      verifyObj();
       setOpen1(true);
     }
+
   };
 
   function verifyImc() {
@@ -74,9 +86,10 @@ export const BuonaTest = () => {
   }
 
   function verifyObj() {
-    if (objetivo === 1.2) {
-      return `Para incrementar el peso, debes tener en cuenta que el objetivo es la ganancia de masa muscular,
-        por lo que se deben valorar diferentes campos. Para tu peso de ${peso}Kg, son recomendables de ${
+    let newRecommend: string = '';
+    if (objetivo == 1.2) {
+      newRecommend = `Para incrementar el peso, debes tener en cuenta que el objetivo es la ganancia de masa muscular,
+        por lo que se deben valorar diferentes campos. Para tu peso de ${ peso }Kg, son recomendables de ${
         peso * 2.2
       }
         a ${peso * 2.6} gramos de proteína. Puedes manejar un rango de ${
@@ -92,8 +105,8 @@ export const BuonaTest = () => {
         equivalentes a ${
           (logro - (peso * 2.6 * 4 + peso * 9)) / 4
         } gramos de carbohidratos.`;
-    } else if (objetivo === 0.8) {
-      return `Para disminuir el peso, debes tener en cuenta que el objetivo es la protección de masa muscular,
+    } else if (objetivo == 0.8) {
+      newRecommend = `Para disminuir el peso, debes tener en cuenta que el objetivo es la protección de masa muscular,
         por lo que se deben valorar diferentes campos. Para tu peso de ${peso}Kg, son recomendables de ${
         peso * 2.8
       }
@@ -112,8 +125,8 @@ export const BuonaTest = () => {
         equivalentes a ${
           (logro - (peso * 2.8 * 4 + peso * 0.8 * 9)) / 4
         } gramos de carbohidratos.`;
-    } else if (objetivo === 1) {
-      return `Para mantener el peso, debes tener en cuenta que el objetivo es la recomposición corporal de masa muscular,
+    } else if (objetivo == 1) {
+      newRecommend = `Para mantener el peso, debes tener en cuenta que el objetivo es la recomposición corporal de masa muscular,
         por lo que se deben valorar diferentes campos. Para tu peso de ${peso}Kg, son recomendables de ${
         peso * 2.0
       }
@@ -131,6 +144,8 @@ export const BuonaTest = () => {
           (logro - (peso * 2.2 * 4 + peso * 1 * 9)) / 4
         } gramos de carbohidratos.`;
     }
+
+    setRecommend( newRecommend );
   }
   
   return (
@@ -158,6 +173,7 @@ export const BuonaTest = () => {
                 value={ objetivo }
                 onChange={ ({ target }: any ) => setObjetivo(target.value)}
                 >
+                    <option value={ 0 }>Objetivo</option>
                     <option value={ 1.2 }>Aunmentar Peso</option>
                     <option value={ 0.8 }>Reducir Peso</option>
                     <option value={ 1 }>Mantener Peso</option>
@@ -170,7 +186,7 @@ export const BuonaTest = () => {
                 onChange={ ({ target }: any ) => setSexo(target.value)}
                 >
                   <option value={ +5 }>Masculino</option>
-                  <option value={ +2 }>Femenino</option>
+                  <option value={ +161 }>Femenino</option>
                 </select>
 
               <input 
@@ -264,7 +280,7 @@ export const BuonaTest = () => {
           </p>
           <br />
           <h3 id="modal-modal-description">
-            <h4 style={{ color: "orange" }}>{verifyImc()}</h4>
+            <p style={{ color: "orange" }}>{verifyImc()}</p>
             <p>
               Recuerda que esta dieta se basa en el déficit y superávit del 20%.
             </p>
@@ -272,8 +288,8 @@ export const BuonaTest = () => {
           </h3>
 
           <h3>
-            <h4>Cumpliendo el objetivo:</h4>
-            <p style={{ textAlign: "justify" }}>{verifyObj()}</p>
+            <b>Cumpliendo el objetivo:</b>
+            <p style={{ textAlign: "justify", color: '#000' }}>{ recommend }</p>
           </h3>
         </div>
     </Modal>
