@@ -154,7 +154,7 @@ export const BuonaTest = () => {
             <h2 className={ styles.title }>Buona Test</h2>
             <form className={ styles.buona__form }>
                 <div className={ styles.box }>
-                <label className={ styles.label } htmlFor="altura"><span>*</span>Altura</label>
+                <label className={ styles.label } htmlFor="altura"><span>*</span>Altura en cm</label>
                 <input 
                 type="text"
                 name='altura'
@@ -165,7 +165,7 @@ export const BuonaTest = () => {
                 </div>
 
                 <div className={ styles.box }>
-                <label className={ styles.label } htmlFor="peso"><span>*</span>Peso</label>
+                <label className={ styles.label } htmlFor="peso"><span>*</span>Peso en Kg</label>
                 <input 
                 type="text"
                 name='peso'
