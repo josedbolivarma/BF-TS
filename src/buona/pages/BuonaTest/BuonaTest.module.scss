@@ -1,0 +1,50 @@
+@import '../../../scss/lib/mediaqueries';
+
+/* examples/custom-styling.css */
+.customOverlay {
+    background: rgba(0, 22, 5, 0.7);
+}
+
+.customModal {
+    border-radius: 12px;
+    border: 3px solid #000;
+    background: #d8ffe5;
+    width: 90%;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    @include tablet {
+        margin-top: 20rem;
+        max-width: 600px;
+    }
+}
+
+.buonaTest {
+    width: 100%;
+    height: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buonaTest__container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.buona__form {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+    & input {
+        padding: 2rem 0;
+        margin-bottom: .4rem;
+    }
+}
+
+.modal {
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+}

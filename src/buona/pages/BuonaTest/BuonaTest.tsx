@@ -1,12 +1,16 @@
-import './BuonaTest.scss';
+import 'react-responsive-modal/styles.css';
+
 import { useState } from 'react';
+import { Modal } from 'react-responsive-modal';
+
+import styles from './BuonaTest.module.scss';
 
 export const BuonaTest = () => {
 
   const [altura, setAltura] = useState(0);
   const [peso, setPeso] = useState(0);
   const [tmb, setTmb] = useState(0);
-  const [edad, setEdad] = useState(0);
+  const [edad, setEdad] = useState(19);
   const [objetivo, setObjetivo] = useState<any>(0);
   const [sexo, setSexo] = useState<any>(0);
   const [actividad, setActividad] = useState<any>(0);
@@ -32,6 +36,10 @@ export const BuonaTest = () => {
   const handleClose1 = () => {
     setOpen1(false);
   };
+
+
+  // const onOpenModal = () => setOpen(true);
+  // const onCloseModal = () => setOpen(false);
 
   const calculateTmb = () => {
     const alturaM = altura / 100;
@@ -126,24 +134,29 @@ export const BuonaTest = () => {
   }
   
   return (
-    <div className='buonaTest'>
-        <div className="buonaTest__container">
-            <h2 className="title">Buona Test</h2>
-            <form className="buona__form">
+    <div className={ styles.buonaTest }>
+        <div className={ styles.buonaTest__container }>
+            <h2 className={ styles.title }>Buona Test</h2>
+            <form className={ styles.buona__form }>
                 <input 
                 type="text"
                 placeholder='Altura en cm'
+                value={ altura }
+                onChange={ ({ target }: any ) => setAltura( target.value )}
                 />
 
                 <input 
                 type="text"
                 placeholder='Peso en kg'
+                value={ peso }
+                onChange={ ({ target }: any ) => setPeso( target.value )}
                 />
 
                 <select 
                 name="" 
                 id=""
-                value={ 0 }
+                value={ objetivo }
+                onChange={ ({ target }: any ) => setObjetivo(target.value)}
                 >
                     <option value={ 1.2 }>Aunmentar Peso</option>
                     <option value={ 0.8 }>Reducir Peso</option>
@@ -154,6 +167,7 @@ export const BuonaTest = () => {
                 name="" 
                 id=""
                 value={ sexo }
+                onChange={ ({ target }: any ) => setSexo(target.value)}
                 >
                   <option value={ +5 }>Masculino</option>
                   <option value={ -161 }>Femenino</option>
@@ -163,12 +177,14 @@ export const BuonaTest = () => {
               type="number" 
               placeholder='Edad'
               value={ edad }
+              onChange={ ({ target }: any ) => setEdad(target.value)}
               />
 
               <select 
                 name="" 
                 id=""
                 value={ actividad }
+                onChange={ ({ target }: any ) => setActividad(target.value)}
                 >
                   <option value={ 1.2 }>Poco o ningun ejercicio</option>
                   <option value={ 1.375 }>De 1 a 3 dias a la semana</option>
@@ -177,17 +193,19 @@ export const BuonaTest = () => {
                   <option value={ 1.9 }>Dos veces al día, entrenamientos muy duros</option>
                 </select>
 
-                <div className="form__actions">
+                <div className={ styles.form__actions }>
                   <button 
+                  type='button'
                   className="btn"
-                  onClick={ () => calculateTmb() }
+                  onClick={ calculateTmb }
                   >
                     Calcular
                   </button>
 
                   <button 
-                  className="btn"
-                  onClick={ () => handleOpen() }
+                  type='button'
+                  className={ styles.btn }
+                  onClick={ handleOpen }
                   >
                     Como Interpretar los datos
                   </button>
@@ -195,6 +213,129 @@ export const BuonaTest = () => {
             </form>
             
         </div>
+
+        {/* MODAL */}
+      
+      <div>
+      <Modal 
+      open={ open } 
+      onClose={ handleClose } 
+      center
+      classNames={{
+        overlay: styles.customOverlay,
+        modal: styles.customModal,
+      }}
+      >
+      <div className={ styles.modal }>
+          <h2>
+            No has ingresado algunos Buona Datos
+          </h2>
+          <p id="modal-modal-description">
+            Ve e ingresa esos datos, para ponernos en forma juntos 🖤
+            <br />
+          </p>
+        </div>
+      </Modal>
+      </div>
+    {/* MODAL */}
+
+    <Modal 
+    open={ open1 }
+    onClose={ handleClose1 }
+    center
+    classNames={{
+      overlay: styles.customOverlay,
+      modal: styles.customModal,
+    }}
+    >
+    <div className='modal-box'>
+          <h2 id="modal-modal-title">
+            <b>Tus Buona Resultados:</b>
+            <br />
+          </h2>
+          <p>
+            <b>TMB:</b> { tmb } Calorías diarias
+          </p>
+          <p>
+            <b>Calorías para cumplir el objetivo:</b> {logro} Calorías diarias
+          </p>
+          <p>
+            <b>Índice de Masa Corporal:</b> { imc }
+          </p>
+          <br />
+          <h3 id="modal-modal-description">
+            <h4 style={{ color: "orange" }}>{verifyImc()}</h4>
+            <p>
+              Recuerda que esta dieta se basa en el déficit y superávit del 20%.
+            </p>
+            <br />
+          </h3>
+
+          <h3>
+            <h4>Cumpliendo el objetivo:</h4>
+            <p style={{ textAlign: "justify" }}>{verifyObj()}</p>
+          </h3>
+        </div>
+    </Modal>
+
+
+      {/* MODAL DATOS INTERPRETACION */}
+      <Modal
+        open={open2}
+        onClose={handleClose2}
+        center
+        classNames={{
+          overlay: styles.customOverlay,
+          modal: styles.customModal,
+        }}
+      >
+        <div className='modal-box'>
+          <h4>¿Que significa cada dato suministrado por el Buona Test? 🖤</h4>
+          <br />
+
+          <h3
+          >
+            <p>
+              <b>IMC: </b>Índice de masa corporal, o método de rangos por talla
+              y peso.
+            </p>
+            <p>
+              <b>TMB: </b>Tasa metabólica basal, es la tasa de gasto energético
+              (calorías).
+            </p>
+            <p>
+              <b>Calorías: </b>Unidad representativa para el gasto de energía.
+            </p>
+            <p>
+              <b>Calorías Objetivo: </b>Calorías de TMB en base al gasto
+              asociado, múltiplicado por la tasa objetivo.
+            </p>
+            <p>
+              <b>Calorías por gramo de grasa: </b>9 Cal.
+            </p>
+            <p>
+              <b>Calorías por gramo de carbohidrato: </b>4 Cal.
+            </p>
+            <p>
+              <b>Calorías por gramo de proteína: </b>4 Cal.
+            </p>
+            <p>
+              <b>Déficit: </b>Reducción de calorías, en esta calculadora
+              correspondiente al 20%, se recomienda en algunas personas un 10%.
+            </p>
+            <p>
+              <b>Superávit: </b>Aumento de calorías, en esta calculadora
+              correspondiente al 20%, se recomienda en algunas personas un 10%.
+            </p>
+            <p>
+              <b>Recomponer:</b>Mantener las calorías de la TMB pero
+              distribuidas de mejor forma, para usar la grasa en construcción de
+              músculo.
+            </p>
+          </h3>
+        </div>
+      </Modal>
+
     </div>
   )
 }
