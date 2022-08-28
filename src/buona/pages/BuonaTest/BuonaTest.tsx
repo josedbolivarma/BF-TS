@@ -170,7 +170,7 @@ export const BuonaTest = () => {
                 onChange={ ({ target }: any ) => setSexo(target.value)}
                 >
                   <option value={ +5 }>Masculino</option>
-                  <option value={ -161 }>Femenino</option>
+                  <option value={ +2 }>Femenino</option>
                 </select>
 
               <input 
