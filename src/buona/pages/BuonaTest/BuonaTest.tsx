@@ -153,23 +153,33 @@ export const BuonaTest = () => {
         <div className={ styles.buonaTest__container }>
             <h2 className={ styles.title }>Buona Test</h2>
             <form className={ styles.buona__form }>
+                <div className={ styles.box }>
+                <label className={ styles.label } htmlFor="altura"><span>*</span>Altura</label>
                 <input 
                 type="text"
+                name='altura'
                 placeholder='Altura en cm'
                 value={ altura }
                 onChange={ ({ target }: any ) => setAltura( target.value )}
                 />
+                </div>
 
+                <div className={ styles.box }>
+                <label className={ styles.label } htmlFor="peso"><span>*</span>Peso</label>
                 <input 
                 type="text"
+                name='peso'
                 placeholder='Peso en kg'
                 value={ peso }
                 onChange={ ({ target }: any ) => setPeso( target.value )}
                 />
+                </div>
+                
 
+                <div className={ styles.box }>
+                <label className={ styles.label } htmlFor="objetivo"><span>*</span>Objetivo</label>
                 <select 
-                name="" 
-                id=""
+                name="objetivo" 
                 value={ objetivo }
                 onChange={ ({ target }: any ) => setObjetivo(target.value)}
                 >
@@ -178,41 +188,53 @@ export const BuonaTest = () => {
                     <option value={ 0.8 }>Reducir Peso</option>
                     <option value={ 1 }>Mantener Peso</option>
                 </select>
-
+                </div>
+                
+                <div className={ styles.box }>
+                <label className={ styles.label } htmlFor="sexo"><span>*</span>Sexo</label>
                 <select 
-                name="" 
-                id=""
+                name="sexo" 
                 value={ sexo }
                 onChange={ ({ target }: any ) => setSexo(target.value)}
                 >
+                  <option value={ 0 }>Sexo</option>
                   <option value={ +5 }>Masculino</option>
                   <option value={ +161 }>Femenino</option>
                 </select>
-
+                </div>
+                
+              <div className={ styles.box }>
+              <label className={ styles.label } htmlFor="edad"><span>*</span>Edad</label>
               <input 
               type="number" 
+              name='edad'
               placeholder='Edad'
               value={ edad }
               onChange={ ({ target }: any ) => setEdad(target.value)}
               />
-
+              </div>
+              
+              <div className={ styles.box }>
+              <label className={ styles.label } htmlFor="actividad"><span>*</span>Actividad</label>
               <select 
-                name="" 
-                id=""
+                name="actividad" 
                 value={ actividad }
                 onChange={ ({ target }: any ) => setActividad(target.value)}
                 >
+                  <option value={ 0 }>Actividad</option>
                   <option value={ 1.2 }>Poco o ningun ejercicio</option>
                   <option value={ 1.375 }>De 1 a 3 dias a la semana</option>
                   <option value={ 1.55 }>De 3 a 5 días a la semana</option>
                   <option value={ 1.725 }>De 6 a 7 días a la semana</option>
                   <option value={ 1.9 }>Dos veces al día, entrenamientos muy duros</option>
                 </select>
+              </div>
+              
 
                 <div className={ styles.form__actions }>
                   <button 
                   type='button'
-                  className="btn"
+                  className={ styles.btnForm }
                   onClick={ calculateTmb }
                   >
                     Calcular
@@ -220,7 +242,7 @@ export const BuonaTest = () => {
 
                   <button 
                   type='button'
-                  className={ styles.btn }
+                  className={ styles.btnForm }
                   onClick={ handleOpen }
                   >
                     Como Interpretar los datos

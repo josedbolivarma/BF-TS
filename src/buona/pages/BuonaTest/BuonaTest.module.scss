@@ -29,18 +29,81 @@
 }
 
 .buonaTest__container {
-    width: 60%;
+    width: 90%;
     margin: 0 auto;
+    @include tablet {
+        width: 60%;
+    }
 }
 
 .buona__form {
     display: flex;
     flex-direction: column;
     gap: .8rem;
-
-    & input {
-        padding: 2rem 0;
+    background-color: #111;
+    box-shadow: 5px 5px 15px #000;
+    padding: 2rem;
+    padding-top: 3rem;
+    border-radius: 4px;
+    & input,
+    & select {
+        padding: 1rem .4rem;
         margin-bottom: .4rem;
+        border-bottom: 2px solid #cd0048;
+        outline: none;
+        border-radius: 2px;
+        box-shadow: 0px 2px 5px #000;
+    }
+   
+   
+}
+
+.form__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .4rem;
+    @include tablet {
+        grid-template-columns: .5fr 1fr;
+    }
+}
+
+.btnForm {
+    padding: .8rem 2rem;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: #cd0048;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.btnForm:hover {
+    opacity: .9;
+}
+
+.title {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: .4rem;
+    font-style: italic;
+    color: #111;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.label {
+    color: #FFF;
+    font-weight: bold;
+    & span {
+        color: #ff0044;
     }
 }
 
