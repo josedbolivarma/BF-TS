@@ -50,25 +50,25 @@ export const ProductsPage = () => {
             <h2 className='detail__title'>Productos Tendencia</h2>
             <div className='category__contentFlex'>
               <h4
-                className='category__option'
+                className={`category__option ${filter === "Definición" ? "category__option_active" : ""}`}
                 onClick={() => setFilter("Definición")}
               >
                 Definición
               </h4>
               <h4
-                className='category__option'
+                className={`category__option ${filter === "Aumento" ? "category__option_active" : ""}`}
                 onClick={() => setFilter("Aumento")}
               >
                 Aumento
               </h4>
               <h4
-                className='category__option'
+                className={`category__option ${filter === "Competición" ? "category__option_active" : ""}`}
                 onClick={() => setFilter("Competición")}
               >
                 Competición
               </h4>
               <h4
-                className='category__option'
+                className={`category__option ${filter === "Funcional" ? "category__option_active" : ""}`}
                 onClick={() => setFilter("Funcional")}
               >
                 Funcional
