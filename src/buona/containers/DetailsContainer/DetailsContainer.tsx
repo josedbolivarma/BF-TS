@@ -5,6 +5,7 @@ import { formatoCOP } from '../../../utils';
 import './DetailsContainer.scss';
 
 import ReactImageMagnify from 'react-image-magnify';
+import { addSyncToCart } from '../../../redux/action/actionShoppingCart';
 
 const initialState = {
     nombre: "Producto De Ejemplo",
@@ -33,7 +34,7 @@ export const DetailsContainer = ({ product = initialState }) => {
   }, [modal]);
 
   const addToCart = ( productCart: any ) => {
-    // dispatch(addSyncToCart(productCart));
+    dispatch(addSyncToCart(productCart));
   };
 
   
@@ -104,7 +105,7 @@ export const DetailsContainer = ({ product = initialState }) => {
       <div className='card__info'>
         <div>
           <h3 className='card__title'>
-            {modal.nombre}
+            {modal?.nombre}
           </h3>
         </div>
         <h3
@@ -118,7 +119,7 @@ export const DetailsContainer = ({ product = initialState }) => {
         <div className='detailsContainer__boxInfo'>
           <h3 className='detailsContainer__price'>Precio</h3>
           <h3 className='link-green'>
-            { formatoCOP.format(modal.precio) }
+            { formatoCOP.format(modal?.precio) }
           </h3>
         </div>
         {/*  */}
@@ -128,7 +129,7 @@ export const DetailsContainer = ({ product = initialState }) => {
               Categoría
             </h3>
             <h3 className='detailsContainer__infoText'>
-              { modal.categoria }
+              { modal?.categoria }
             </h3>
           </div>
           <div className='detailsContainer__boxInfoFlex'>
@@ -136,7 +137,7 @@ export const DetailsContainer = ({ product = initialState }) => {
               Sabor
             </h3>
             <h3 className='detailsContainer__infoText'>
-              { modal.sabor }
+              { modal?.sabor }
             </h3>
           </div>
           <div className='detailsContainer__boxInfoFlex'>
@@ -144,7 +145,7 @@ export const DetailsContainer = ({ product = initialState }) => {
               Contenido
             </h3>
             <h3 className='detailsContainer__infoText'>
-              { modal.gramos }
+              { modal?.gramos }
             </h3>
           </div>
         </div>

@@ -27,20 +27,20 @@ export const CommentsContainer = ({ product }: any ) => {
       <div className='commentsContainer__container'>
         <div className='commentsContainer__questionsBox'>
           <h4 className='commentsContainer__questions'>
-            { comments.filter(( item: any ) => item.nombre == product.nombre ).length }{" "}
+            { comments.filter(( item: any ) => item?.nombre == product?.nombre ).length }{" "}
             PREGUNTAS
           </h4>
         </div>
         <CommentSender product={ product } user={ user } />
         { comments
-          .filter( ( item: any ) => item.nombre == product.nombre )
+          .filter( ( item: any ) => item?.nombre == product?.nombre )
           .map(( item: any , index: number) => (
             <Comment
               key={index}
-              username={item.username}
-              profilePic={item.profilePic}
-              message={item.message}
-              timestamp={item.timestamp}
+              username={item?.username}
+              profilePic={item?.profilePic}
+              message={item?.message}
+              timestamp={item?.timestamp}
               product={ product }
             />
           ))}

@@ -43,9 +43,9 @@ export const Header = () => {
               <Link className="header__link" to="/products">
                 PRODUCTOS
               </Link>
-              <Link className="header__link" to="/detalle">
+              {/* <Link className="header__link" to="/detalle">
                 DETALLE
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="header__socialIcons">

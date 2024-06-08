@@ -23,7 +23,7 @@ export const Comment = ({profilePic, image, username, timestamp, message, produc
 
     <div className='comment__box'>
         <p>
-        { product.nombre }
+        { product?.nombre }
         </p>
         <p>
             A 45 personas les resultó útil
