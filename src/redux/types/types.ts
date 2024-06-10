@@ -22,3 +22,12 @@ export const typesComments = {
     add: 'add [COMMENTS]',
     list: 'list [COMMENTS]'
 }
+
+export const typesLogin = {
+    login: 'Login [LOGIN]',
+    logout: 'Logout [LOGIN]'
+}
+
+export const typesRegister = {
+    register: 'Register [REGISTER]'
+}

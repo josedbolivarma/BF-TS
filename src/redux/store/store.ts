@@ -5,6 +5,8 @@ import { modalReducer } from '../reducers/modalReducer';
 import { obtenerLocalStorage, guardarLocalStorage } from '../../utils';
 import { shoppingCartReducer } from "../reducers/shoppingCartReducer";
 import { commentsReducer } from "../reducers/commentsReducer";
+import { loginReducer } from "../reducers/loginReducer";
+import { registerReducer } from "../reducers/registerReducer";
 
 declare global {
     interface Window {
@@ -17,6 +19,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const storageState = obtenerLocalStorage();
 
 const reducersEnviar = combineReducers({
+    login: loginReducer,
+    register: registerReducer,
     products: productsReducer,
     modal: modalReducer,
     cart: shoppingCartReducer,
