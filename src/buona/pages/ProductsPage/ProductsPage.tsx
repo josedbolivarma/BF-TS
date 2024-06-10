@@ -6,6 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import './ProductsPage.scss';
 import { Loader } from '../../../ui';
+import InputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css';
+import { formatoCOP } from '../../../utils';
 
 export const ProductsPage = () => {
     
@@ -13,7 +16,15 @@ export const ProductsPage = () => {
   const dispatch = useDispatch();
 
   const [filter, setFilter] = useState("Definición");
-  const [ammount, setAmmount] = useState(500000);
+  const [ammount, setAmmount] = useState(1000000);
+  
+  const min = 0;
+  const max = 1000000;
+
+  const [price, setPrice] = useState({
+    min,
+    max
+  });
 
   const handleChange = ( e: any , newValue: any ) => {
     setAmmount( newValue );
@@ -31,18 +42,21 @@ export const ProductsPage = () => {
           <h3 className='detail__title'>
             <i>PRODUCTOS</i>
           </h3>
+
         </div>
         <div className='category__selector'>
           <p className='detail__price'>Precio</p>
-          {/* <Slider
-            value={ammount}
-            onChange={handleChange}
-            aria-labelledby="continuous-slider"
-            min={0}
-            max={500000}
-            valueLabelDisplay="auto"
-            color="secondary"
-          /> */}
+          <form className='input_range'>
+          <InputRange 
+            formatLabel={price => `${formatoCOP.format(price)} COP`}
+            draggableTrack
+            maxValue={max}
+            minValue={min}
+            value={price}
+            onChange={(value: any) => { setPrice({ min: value?.min < min ? min : value?.min, max: value?.max > max ? max : value?.max }) }}
+            // onChangeComplete={value => setPrice({min: 10, max: Number(value)})}
+          />
+          </form>
         </div>
         {/* flex */}
         <div className='category__containerFlex'>
@@ -80,8 +94,8 @@ export const ProductsPage = () => {
               (!products)
               ? <Loader />
               : products
-              .filter(( item: any ) => item.categoria === filter)
-              .filter((item: any ) => item.precio < ammount)
+              .filter(( item: any ) => item?.categoria === filter)
+              .filter((item: any ) => item?.precio < price?.max && item?.precio > price?.min)
               .map(( item: any , index: number ) => (
                 <Product key={ index } product={ item } />
               ))
