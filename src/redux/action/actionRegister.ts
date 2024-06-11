@@ -3,7 +3,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { typesRegister } from "../types/types";
 
-export const registerAsync = (email: any, pass: any, name: any, role: any) => {
+export const registerAsync: any = (email: any, pass: any, name: any, role: any) => {
     return (dispatch: any) => {
         const auth: any = getAuth()
         createUserWithEmailAndPassword(auth, email, pass)

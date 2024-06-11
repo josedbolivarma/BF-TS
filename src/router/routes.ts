@@ -21,6 +21,7 @@ const lazy9 = lazy(() => import(/* webpackChunkName: "LazyProductsPage" */'../bu
 const lazy10 = lazy(() => import(/* webpackChunkName: "LazyTrainingsPage" */'../buona/pages/Trainings/Trainings'));
 const lazy11 = lazy(() => import(/* webpackChunkName: "LazyExercisePage" */'../buona/pages/Exercise/Exercise'));
 const lazy12 = lazy(() => import(/* webpackChunkName: "LazyLoginPage" */'../auth/pages/Login/Login'));
+const lazy13 = lazy(() => import(/* webpackChunkName: "LazyRegisterPage" */'../auth/pages/Register/Register'));
 
 export const routes: Route[] = [
     {
@@ -34,6 +35,12 @@ export const routes: Route[] = [
         path: '/login',
         Component: lazy12,
         name: 'Login Page'
+    },
+    {
+        to: '/register',
+        path: '/register',
+        Component: lazy13,
+        name: 'Register Page'
     },
     {
         to: '/detalle',
