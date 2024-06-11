@@ -93,3 +93,44 @@
       opacity: .9;
     }
 }
+
+.btn_google {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  color: #fff;
+  background: #13212c;
+  border-radius: 5px;
+  padding: 0.34rem 0.6rem;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn_facebook {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.4rem;
+  cursor: pointer;
+  color: #fff;
+  background: #022c4b;
+  border-radius: 5px;
+  padding: 0.34rem 0.6rem;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn_google svg, .btn_facebook svg {
+  width: 20px;
+  height: 20px;
+}

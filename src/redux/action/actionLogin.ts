@@ -11,7 +11,7 @@ import {
   
   //--------------------Logout----------------------//
   
-  export const logoutAsync = () => {
+  export const logoutAsync: any = () => {
     return (dispatch: any) => {
       const auth = getAuth();
       signOut(auth)

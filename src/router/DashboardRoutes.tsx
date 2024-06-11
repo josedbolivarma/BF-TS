@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Footer, Header } from '../ui';
 import { Payment } from '../buona/pages';
 import { routes } from './';
@@ -16,11 +16,14 @@ export const DashboardRoutes = () => {
     <>
       <Header />
       <Routes>
+        
         {
           routes.map(({ Component, path }) => (
             <Route key={ path } path={ path } element={ <Component /> } />
           ))
         }
+
+        <Route path="*" element={<Navigate to='/' />} />
 
         {/* <Route path='/payment' element={
           <div>

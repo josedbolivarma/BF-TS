@@ -1,21 +1,27 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import './Header.scss';
 import { Divide as Hamburger } from 'hamburger-react'
 
 import { Nav } from '../';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Icons
 import { BsFillPersonFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { User, getAuth } from "firebase/auth";
+import { logoutAsync } from "../../redux/action/actionLogin";
 
 const iconStyles = { fontSize: '30px' };
 
 export const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [showMenu, setShowMenu] = useState(true);
   const [isOpen, setOpen] = useState<boolean>(false)
+  const [user, setUser] = useState<User|any>({});
   
   const { cart } = useSelector(( store: any ) => store.cart);
 
@@ -23,6 +29,24 @@ export const Header = () => {
     setShowMenu(!showMenu);
     setOpen( !isOpen );
   }
+
+  const handleLogout = () => {
+    dispatch(logoutAsync());
+    navigate("/login");
+  };
+
+  const selectHandler = () => {
+    if (user) {
+      handleLogout();
+    }
+  }
+
+  useEffect(() => {
+    const auth = getAuth().currentUser;
+    setUser(auth);
+    console.log({auth});
+    
+  }, []);
 
   return (
     <div className="header__root">
@@ -50,23 +74,26 @@ export const Header = () => {
           </div>
           <div className="header__socialIcons">
             {/* /login */}
-            <Link className="header__link" to="/login">
-              <div className="header__option">
+            <p className="header__link">
+              <div className="header__option" onClick={selectHandler}>
               {/* onClick={ handleLogout }  */}
                 <span className="header__optionLineOne">
                   Hola,{" "}
-                  Jose
+                  {
+                    user?.displayName 
+                    ? user?.displayName
+                    : user?.email
+                  }
                   {/* {!user
                     ? "Guest"
                     : !user.displayName
                     ? user.email
                     : user.displayName} */}
                 </span>
-                {/* { user ? "Cerrar Sesión" : "Inicio de Sesión"} */}
-                Ingresar
+                { user ? "Cerrar Sesión" : "Inicio de Sesión"}
                 <BsFillPersonFill style={ iconStyles }/>
               </div>
-            </Link>
+            </p>
             <Link className="header__link" to="/cart">
               <FaShoppingCart style={ iconStyles }/>
               <span>{ cart.length }</span>
