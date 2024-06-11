@@ -83,11 +83,11 @@ export const Register = () => {
             onChange={handleInputChange}
           />
 
-          <h5>Rol</h5>
+          {/* <h5>Rol</h5>
           <select value={role} name="role" onChange={handleInputChange}>
             <option value="usuario">Usuario</option>
             <option value="admin">Administrador</option>
-          </select>
+          </select> */}
 
           <h5>Contraseña</h5>
           <input

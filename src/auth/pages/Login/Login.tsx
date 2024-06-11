@@ -52,6 +52,7 @@ export const Login = () => {
   };
 
   return (
+    <section className={styles.main}>
     <div className={styles.root}>
       <div className={styles.root__sidebar}>
         <img
@@ -104,6 +105,7 @@ export const Login = () => {
         
       </div>
     </div>
+    </section>
   );
 };
 
