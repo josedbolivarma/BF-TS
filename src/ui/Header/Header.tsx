@@ -80,7 +80,7 @@ export const Header = () => {
               <div className="header__option" onClick={selectHandler}>
               {/* onClick={ handleLogout }  */}
                 <span className="header__optionLineOne">
-                  Hola,{" "}
+                Benvenuto,{" "}
                   {
                     user?.displayName 
                     ? user?.displayName

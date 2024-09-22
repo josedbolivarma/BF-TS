@@ -30,7 +30,7 @@ const bannerLinks = [
 export const HomePage = () => {
 
   const [ image, setImage ] = useState({
-    categoria: "TU DEFINES EL OBJETIVO",
+    categoria: "TÚ DEFINES EL OBJETIVO",
     image:
       "https://www.cope.es/blogs/t-cuidamos/wp-content/uploads/sites/12/2018/12/gimnasio.jpg",
   });
