@@ -38,6 +38,8 @@ export const Header = () => {
   const selectHandler = () => {
     if (user) {
       handleLogout();
+    } else {
+      navigate("/login");
     }
   }
 
@@ -82,7 +84,9 @@ export const Header = () => {
                   {
                     user?.displayName 
                     ? user?.displayName
-                    : user?.email
+                    : user?.email 
+                    ? user?.email 
+                    : "Buona Fitness"
                   }
                   {/* {!user
                     ? "Guest"

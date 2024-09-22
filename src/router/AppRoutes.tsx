@@ -14,11 +14,11 @@ export const AppRoutes = () => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       // dispatch(searchAsync(user.email))
-      if (user?.uid) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
+      // if (user?.uid) {
+      //   setIsLoggedIn(true);
+      // } else {
+      //   setIsLoggedIn(false);
+      // }
       setChecking(false);
     });
   }, [setIsLoggedIn, setChecking]);
@@ -59,10 +59,10 @@ export const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
+        {/* <Route
           path="/login"
           element={
-            <PublicRouter isAuth={isLoggedIn}>
+            <PublicRouter isAuth={!isLoggedIn}>
               <Login />
             </PublicRouter>
           }
@@ -71,16 +71,26 @@ export const AppRoutes = () => {
         <Route
           path="/register"
           element={
-            <PublicRouter isAuth={isLoggedIn}>
+            <PublicRouter isAuth={!isLoggedIn}>
               <Register />
             </PublicRouter>
           }
+        /> */}
+
+        <Route 
+          path="/login"
+          element={<Login />}
+        />
+
+        <Route 
+          path="/register"
+          element={<Register />}
         />
 
         <Route 
           path="/*"
           element={
-            <PrivateRouter isAuth={isLoggedIn}>
+            <PrivateRouter isAuth={!isLoggedIn}>
               <DashboardRoutes />
             </PrivateRouter>
           }

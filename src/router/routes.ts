@@ -31,18 +31,6 @@ export const routes: Route[] = [
         name: 'Home'
     },
     {
-        to: '/login',
-        path: '/login',
-        Component: lazy12,
-        name: 'Login Page'
-    },
-    {
-        to: '/register',
-        path: '/register',
-        Component: lazy13,
-        name: 'Register Page'
-    },
-    {
         to: '/detalle',
         path: '/detalle',
         Component: lazy2,
